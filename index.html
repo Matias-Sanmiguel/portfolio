@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Matías Sanmiguel — System Engineer</title>
+  <title>Matías Sanmiguel | System Engineer</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -30,6 +30,20 @@
       --sans:   'DM Sans', 'Helvetica Neue', sans-serif;
       --mono:   'JetBrains Mono', 'SF Mono', monospace;
       --max-w:  1100px;
+    }
+
+    :root.dark {
+      --bg:        #111111;
+      --surface:   #1a1a1a;
+      --border:    #2c2c2c;
+      --text:      #f0ede8;
+      --muted:     #888580;
+      --accent:    #D4724E;
+      --accent-bg: #2a1f1a;
+      --accent-r-bg: #2d1616; --accent-r-tx: #f08080;
+      --accent-b-bg: #0f2233; --accent-b-tx: #7ec8f0;
+      --accent-g-bg: #111f11; --accent-g-tx: #7dbb80;
+      --accent-y-bg: #211a05; --accent-y-tx: #d4a84b;
     }
 
     html { scroll-behavior: smooth; }
@@ -78,7 +92,26 @@
       background: rgba(247,246,243,0.85);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
+      transition: background 200ms;
     }
+    :root.dark nav { background: rgba(17,17,17,0.88); }
+
+    .theme-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      transition: color 180ms, border-color 180ms;
+      flex-shrink: 0;
+    }
+    .theme-toggle:hover { color: var(--accent); border-color: var(--accent); }
+    .theme-toggle i { font-size: 16px; pointer-events: none; }
     nav .container {
       display: flex;
       align-items: center;
@@ -465,10 +498,11 @@
 
     /* ── CONTACT / FOOTER ──────────────────────────────────────── */
     #contact {
-      background: var(--text);
+      background: #111111;
       color: #FFFFFF;
       border-top: none;
     }
+    :root.dark #contact { background: #0a0a0a; }
     #contact .section-label { color: rgba(255,255,255,0.3); }
     .contact-heading {
       font-family: var(--serif);
@@ -565,6 +599,9 @@
       <li><a href="#skills">Skills</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+      <i class="ph ph-moon" id="themeIcon"></i>
+    </button>
   </div>
 </nav>
 
@@ -616,7 +653,7 @@
         <p>
           Software Engineering student at UADE with hands-on experience shipping
           production systems across healthcare, logistics, and distribution. I work
-          across the full stack — from PostgreSQL schema design and backend APIs to
+          across the full stack: from PostgreSQL schema design and backend APIs to
           Linux infrastructure and container orchestration.
         </p>
         <p>
@@ -626,7 +663,7 @@
         </p>
         <p>
           Currently available for backend, infrastructure, and systems architecture
-          work — remote or Buenos Aires.
+          work, remote or Buenos Aires.
         </p>
       </div>
     </div>
@@ -641,7 +678,7 @@
 
       <div class="exp-item reveal">
         <div class="exp-meta">
-          <p class="exp-period">Jan 2025 — Present</p>
+          <p class="exp-period">Jan 2025 - Present</p>
           <p class="exp-context">Freelance<br>Healthcare sector</p>
         </div>
         <div class="exp-content">
@@ -665,7 +702,7 @@
 
       <div class="exp-item reveal">
         <div class="exp-meta">
-          <p class="exp-period">Dec 2024 — Apr 2025</p>
+          <p class="exp-period">Dec 2024 - Apr 2025</p>
           <p class="exp-context">Freelance<br>Distribution sector</p>
         </div>
         <div class="exp-content">
@@ -690,7 +727,7 @@
 
       <div class="exp-item reveal">
         <div class="exp-meta">
-          <p class="exp-period">Jan 2023 — Nov 2024</p>
+          <p class="exp-period">Jan 2023 - Nov 2024</p>
           <p class="exp-context">Full-time<br>Internal</p>
         </div>
         <div class="exp-content">
@@ -752,7 +789,7 @@
           <div class="chrome-dot"></div>
         </div>
         <p class="card-number">01</p>
-        <h3 class="card-title">Caché — Polyglot Social Network</h3>
+        <h3 class="card-title">Caché: Polyglot Social Network</h3>
         <p class="card-desc">
           Nightlife social platform built on a four-database polyglot architecture.
           Neo4j handles the social graph and recommendations, Redis manages real-time
@@ -781,7 +818,7 @@
         <h3 class="card-title">Pressure</h3>
         <p class="card-desc">
           Cross-platform desktop video compressor built in Rust. Auto-detects the best
-          available hardware encoder — NVENC on NVIDIA, VideoToolbox on macOS — and
+          available hardware encoder (NVENC on NVIDIA, VideoToolbox on macOS) and
           falls back to libx264. Queue-based with live telemetry, 12 MB binary,
           context-menu integration on Windows without admin rights.
         </p>
@@ -800,7 +837,7 @@
       <!-- Honeycomb -->
       <div class="bento-card bento-card--half reveal">
         <p class="card-number">03</p>
-        <h3 class="card-title">Honeycomb — Blockchain Forensics</h3>
+        <h3 class="card-title">Honeycomb: Blockchain Forensics</h3>
         <p class="card-desc">
           Forensic analysis system for blockchain transaction graphs. BFS, DFS, Dijkstra,
           and Prim implemented by hand in Java. Detects peel chains, mixer hubs, and
@@ -856,16 +893,16 @@
             <div class="skill-bar-wrap"><div class="skill-bar" style="--w:0.90"></div></div>
           </div>
           <div class="skill-row">
-            <span class="skill-name">Rust</span>
-            <div class="skill-bar-wrap"><div class="skill-bar" style="--w:0.72"></div></div>
-          </div>
-          <div class="skill-row">
             <span class="skill-name">Python</span>
             <div class="skill-bar-wrap"><div class="skill-bar" style="--w:0.82"></div></div>
           </div>
           <div class="skill-row">
-            <span class="skill-name">TypeScript</span>
-            <div class="skill-bar-wrap"><div class="skill-bar" style="--w:0.65"></div></div>
+            <span class="skill-name">SQL</span>
+            <div class="skill-bar-wrap"><div class="skill-bar" style="--w:0.91"></div></div>
+          </div>
+          <div class="skill-row">
+            <span class="skill-name">Bash / Shell</span>
+            <div class="skill-bar-wrap"><div class="skill-bar" style="--w:0.75"></div></div>
           </div>
         </div>
       </div>
@@ -889,6 +926,10 @@
             <span class="skill-name">Cassandra</span>
             <div class="skill-bar-wrap"><div class="skill-bar" style="--w:0.68"></div></div>
           </div>
+          <div class="skill-row">
+            <span class="skill-name">TypeScript</span>
+            <div class="skill-bar-wrap"><div class="skill-bar" style="--w:0.65"></div></div>
+          </div>
         </div>
       </div>
 
@@ -911,6 +952,10 @@
             <span class="skill-name">Data Modeling / Schema Design</span>
             <div class="skill-bar-wrap"><div class="skill-bar" style="--w:0.90"></div></div>
           </div>
+          <div class="skill-row">
+            <span class="skill-name">Rust</span>
+            <div class="skill-bar-wrap"><div class="skill-bar" style="--w:0.72"></div></div>
+          </div>
         </div>
       </div>
 
@@ -924,7 +969,7 @@
     <p class="section-label reveal">Education</p>
     <div class="edu-card reveal">
       <div class="edu-year">
-        <p style="font-family:var(--mono);font-size:12px;color:var(--muted);">2024 — 2029</p>
+        <p style="font-family:var(--mono);font-size:12px;color:var(--muted);">2024 - 2029</p>
         <p style="font-size:12px;color:var(--muted);margin-top:4px;">In progress</p>
       </div>
       <div>
@@ -970,6 +1015,24 @@
 </section>
 
 <script>
+  // Dark mode
+  const root = document.documentElement;
+  const toggle = document.getElementById('themeToggle');
+  const icon = document.getElementById('themeIcon');
+
+  function applyTheme(dark) {
+    root.classList.toggle('dark', dark);
+    icon.className = dark ? 'ph ph-sun' : 'ph ph-moon';
+  }
+
+  applyTheme(localStorage.getItem('theme') === 'dark');
+
+  toggle.addEventListener('click', () => {
+    const isDark = root.classList.contains('dark');
+    localStorage.setItem('theme', isDark ? 'light' : 'dark');
+    applyTheme(!isDark);
+  });
+
   // Scroll-reveal via IntersectionObserver
   const revealEls = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
