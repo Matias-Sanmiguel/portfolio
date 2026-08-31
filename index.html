@@ -14,36 +14,29 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:        #F7F6F3;
-      --surface:   #FFFFFF;
-      --border:    #EAEAEA;
-      --text:      #111111;
-      --muted:     #787774;
-      /* primary accent — warm terracotta */
-      --accent:    #B85C38;
-      --accent-bg: #FAF0EB;
-      --accent-r-bg: #FDEBEC; --accent-r-tx: #9F2F2D;
-      --accent-b-bg: #E1F3FE; --accent-b-tx: #1F6C9F;
-      --accent-g-bg: #EDF3EC; --accent-g-tx: #346538;
-      --accent-y-bg: #FBF3DB; --accent-y-tx: #956400;
+      --bg:        #F4F3EF;
+      --surface:   #FBFBFA;
+      --border:    #E4E2DC;
+      --text:      #1A1916;
+      --muted:     #6B6964;
+      --accent:    #8F3A32;
+      --accent-bg: #F6EBE8;
       --serif:  'Newsreader', 'Georgia', serif;
       --sans:   'DM Sans', 'Helvetica Neue', sans-serif;
       --mono:   'JetBrains Mono', 'SF Mono', monospace;
       --max-w:  1100px;
+      --nav-bg: rgba(244, 243, 239, 0.85);
     }
 
     :root.dark {
-      --bg:        #111111;
-      --surface:   #1a1a1a;
-      --border:    #2c2c2c;
-      --text:      #f0ede8;
-      --muted:     #888580;
-      --accent:    #D4724E;
-      --accent-bg: #2a1f1a;
-      --accent-r-bg: #2d1616; --accent-r-tx: #f08080;
-      --accent-b-bg: #0f2233; --accent-b-tx: #7ec8f0;
-      --accent-g-bg: #111f11; --accent-g-tx: #7dbb80;
-      --accent-y-bg: #211a05; --accent-y-tx: #d4a84b;
+      --bg:        #141312;
+      --surface:   #1C1B19;
+      --border:    #2A2926;
+      --text:      #F0EDE8;
+      --muted:     #8A8780;
+      --accent:    #C46A5A;
+      --accent-bg: #2A1A18;
+      --nav-bg: rgba(20, 19, 18, 0.88);
     }
 
     html { scroll-behavior: smooth; }
@@ -57,6 +50,16 @@
       -webkit-font-smoothing: antialiased;
     }
 
+    h1, h2, h3, .about-heading, .contact-heading, .sashimi-thesis {
+      text-wrap: balance;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
     /* ── AMBIENT LAYER ─────────────────────────────────────────── */
     .ambient {
       position: fixed;
@@ -64,9 +67,9 @@
       pointer-events: none;
       z-index: 0;
       background:
-        radial-gradient(ellipse 60% 40% at 80% 10%, rgba(184,92,56,0.06) 0%, transparent 70%),
-        radial-gradient(ellipse 50% 40% at 10% 80%, rgba(225,243,254,0.10) 0%, transparent 70%),
-        radial-gradient(ellipse 40% 30% at 50% 50%, rgba(251,243,219,0.08) 0%, transparent 70%);
+        radial-gradient(ellipse 60% 40% at 80% 10%, rgba(143,58,50,0.06) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 40% at 10% 80%, rgba(90,110,128,0.07) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 30% at 50% 50%, rgba(143,58,50,0.04) 0%, transparent 70%);
       animation: drift 30s ease-in-out infinite alternate;
     }
     @keyframes drift {
@@ -89,12 +92,11 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(247,246,243,0.85);
+      background: var(--nav-bg);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
       transition: background 200ms;
     }
-    :root.dark nav { background: rgba(17,17,17,0.88); }
 
     .theme-toggle {
       display: flex;
@@ -111,6 +113,7 @@
       flex-shrink: 0;
     }
     .theme-toggle:hover { color: var(--accent); border-color: var(--accent); }
+    .theme-toggle:active { transform: scale(0.98); }
     .theme-toggle i { font-size: 16px; pointer-events: none; }
     nav .container {
       display: flex;
@@ -169,7 +172,7 @@
       font-size: clamp(52px, 7vw, 88px);
       font-weight: 300;
       line-height: 1.05;
-      letter-spacing: -0.03em;
+      letter-spacing: -0.04em;
       color: var(--text);
       margin-bottom: 24px;
     }
@@ -208,17 +211,17 @@
       align-items: center;
       gap: 8px;
       background: var(--text);
-      color: #FFFFFF;
+      color: var(--bg);
       font-family: var(--sans);
       font-size: 13px;
       font-weight: 500;
       padding: 10px 20px;
       border-radius: 5px;
       text-decoration: none;
-      transition: background 180ms, transform 100ms;
+      transition: background 200ms cubic-bezier(0.16, 1, 0.3, 1), transform 100ms;
     }
     .cta-btn:active { transform: scale(0.98); }
-    .cta-btn:hover  { background: #333333; }
+    .cta-btn:hover  { background: var(--accent); color: #FBFBFA; }
 
     /* ── ABOUT ─────────────────────────────────────────────────── */
     .about-grid {
@@ -250,7 +253,7 @@
       display: grid;
       grid-template-columns: 220px 1fr;
       gap: 40px;
-      padding: 36px 0;
+      padding: 40px 0;
       border-bottom: 1px solid var(--border);
     }
     .exp-item:first-child { border-top: 1px solid var(--border); }
@@ -267,7 +270,6 @@
       color: var(--muted);
       line-height: 1.5;
     }
-    .exp-content {}
     .exp-role {
       font-size: 16px;
       font-weight: 500;
@@ -314,13 +316,115 @@
       font-weight: 500;
       letter-spacing: 0.07em;
       text-transform: uppercase;
-      border-radius: 9999px;
+      border-radius: 3px;
       padding: 3px 10px;
+      background: transparent;
+      color: var(--muted);
+      border: 1px solid var(--border);
     }
-    .tag-r { background: var(--accent-r-bg); color: var(--accent-r-tx); }
-    .tag-b { background: var(--accent-b-bg); color: var(--accent-b-tx); }
-    .tag-g { background: var(--accent-g-bg); color: var(--accent-g-tx); }
-    .tag-y { background: var(--accent-y-bg); color: var(--accent-y-tx); }
+
+    /* ── SASHIMI SPREAD ────────────────────────────────────────── */
+    .sashimi-spread {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 40px 40px 36px;
+      margin-bottom: 12px;
+    }
+    .sashimi-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 24px;
+      margin-bottom: 28px;
+    }
+    .sashimi-kicker {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      opacity: 0.7;
+      margin-bottom: 10px;
+    }
+    .sashimi-title {
+      font-family: var(--serif);
+      font-size: clamp(28px, 3.5vw, 40px);
+      font-weight: 300;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .sashimi-eyebrow {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .sashimi-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      padding-top: 4px;
+      flex-shrink: 0;
+    }
+    .sashimi-thesis {
+      font-family: var(--serif);
+      font-size: clamp(22px, 2.6vw, 30px);
+      font-weight: 300;
+      line-height: 1.3;
+      letter-spacing: -0.025em;
+      color: var(--text);
+      max-width: 42ch;
+      margin-bottom: 36px;
+    }
+    .sashimi-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: stretch;
+      margin-bottom: 28px;
+    }
+    .rail {
+      padding: 22px 0;
+      border-top: 1px solid var(--border);
+    }
+    .rail:first-child { border-top: none; padding-top: 0; }
+    .rail:last-child { padding-bottom: 0; }
+    .rail-label {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .rail-flow {
+      font-size: 15px;
+      color: var(--text);
+      line-height: 1.5;
+    }
+    .rail-note {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 6px;
+      line-height: 1.55;
+    }
+    .sashimi-window {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow-x: auto;
+      min-height: 100%;
+    }
+    .sashimi-window .window-chrome {
+      margin: 0;
+      border-radius: 0;
+    }
+    .sashimi-window .window-body {
+      padding: 16px 18px 20px;
+    }
 
     /* ── PROJECTS BENTO ────────────────────────────────────────── */
     .bento {
@@ -334,11 +438,14 @@
       border: 1px solid var(--border);
       border-radius: 10px;
       padding: 32px;
-      transition: box-shadow 200ms;
+      transition: box-shadow 200ms cubic-bezier(0.16, 1, 0.3, 1);
       overflow: hidden;
     }
     .bento-card:hover {
-      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+      box-shadow: 0 8px 28px -12px rgba(26, 25, 22, 0.14);
+    }
+    :root.dark .bento-card:hover {
+      box-shadow: 0 8px 28px -12px rgba(0, 0, 0, 0.45);
     }
     .bento-card--main  { grid-column: span 7; }
     .bento-card--side  { grid-column: span 5; }
@@ -350,7 +457,7 @@
       font-size: 11px;
       letter-spacing: 0.08em;
       color: var(--accent);
-      opacity: 0.45;
+      opacity: 0.55;
       margin-bottom: 24px;
     }
     .card-title {
@@ -384,16 +491,14 @@
     }
     .card-link:hover { opacity: 0.6; }
 
-    /* faux-OS window chrome */
     .window-chrome {
-      background: #F0EFED;
+      background: var(--bg);
       border-radius: 8px 8px 0 0;
       height: 36px;
       display: flex;
       align-items: center;
       padding: 0 14px;
       gap: 6px;
-      margin: -32px -32px 28px;
       border-bottom: 1px solid var(--border);
     }
     .chrome-dot {
@@ -408,9 +513,9 @@
       line-height: 1.8;
     }
     .window-body .line-num { color: var(--border); user-select: none; margin-right: 16px; }
-    .window-body .kw  { color: var(--accent-b-tx); }
-    .window-body .str { color: var(--accent-g-tx); }
-    .window-body .cmt { color: var(--border); font-style: italic; }
+    .window-body .kw  { color: var(--text); }
+    .window-body .str { color: var(--accent); }
+    .window-body .cmt { color: var(--muted); opacity: 0.55; font-style: italic; }
 
     /* ── SKILLS ────────────────────────────────────────────────── */
     .skills-grid {
@@ -438,33 +543,12 @@
       display: flex;
       flex-direction: column;
       gap: 10px;
-    }
-    .skill-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      list-style: none;
     }
     .skill-name {
       font-size: 14px;
       color: var(--text);
     }
-    .skill-bar-wrap {
-      width: 80px;
-      height: 2px;
-      background: var(--border);
-      border-radius: 2px;
-      overflow: hidden;
-    }
-    .skill-bar {
-      height: 100%;
-      width: calc(var(--w, 1) * 100%);
-      background: var(--text);
-      border-radius: 2px;
-      transform-origin: left;
-      transform: scaleX(0);
-      transition: transform 800ms cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .skill-bar.animated { transform: scaleX(1); }
 
     /* ── EDUCATION ─────────────────────────────────────────────── */
     .edu-card {
@@ -498,22 +582,21 @@
 
     /* ── CONTACT / FOOTER ──────────────────────────────────────── */
     #contact {
-      background: #111111;
-      color: #FFFFFF;
+      background: #141312;
+      color: #F0EDE8;
       border-top: none;
     }
-    :root.dark #contact { background: #0a0a0a; }
-    #contact .section-label { color: rgba(255,255,255,0.3); }
+    #contact .section-label { color: #C46A5A; opacity: 0.7; }
     .contact-heading {
       font-family: var(--serif);
       font-size: clamp(40px, 6vw, 72px);
       font-weight: 300;
       letter-spacing: -0.03em;
       line-height: 1.1;
-      color: #FFFFFF;
+      color: #F0EDE8;
       margin-bottom: 48px;
     }
-    .contact-heading em { font-style: italic; color: rgba(255,255,255,0.4); }
+    .contact-heading em { font-style: italic; color: #C46A5A; }
     .contact-links {
       display: flex;
       flex-wrap: wrap;
@@ -525,22 +608,25 @@
       gap: 8px;
       font-family: var(--mono);
       font-size: 13px;
-      color: rgba(255,255,255,0.6);
+      color: rgba(240, 237, 232, 0.6);
       text-decoration: none;
       padding: 10px 18px;
-      border: 1px solid rgba(255,255,255,0.12);
+      border: 1px solid rgba(240, 237, 232, 0.12);
       border-radius: 6px;
-      transition: all 180ms;
+      transition: color 180ms, border-color 180ms, background 180ms;
     }
     .contact-link:hover {
-      color: #FFFFFF;
-      border-color: rgba(255,255,255,0.35);
-      background: rgba(255,255,255,0.06);
+      color: #F0EDE8;
+      border-color: rgba(240, 237, 232, 0.35);
+      background: rgba(240, 237, 232, 0.06);
+    }
+    .contact-link:focus-visible {
+      outline-color: #C46A5A;
     }
     .footer-bottom {
       margin-top: 80px;
       padding-top: 28px;
-      border-top: 1px solid rgba(255,255,255,0.08);
+      border-top: 1px solid rgba(240, 237, 232, 0.08);
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -548,7 +634,7 @@
     .footer-copy {
       font-family: var(--mono);
       font-size: 11px;
-      color: rgba(255,255,255,0.2);
+      color: rgba(240, 237, 232, 0.22);
       letter-spacing: 0.05em;
     }
 
@@ -568,6 +654,16 @@
     .reveal-delay-3 { transition-delay: 240ms; }
     .reveal-delay-4 { transition-delay: 320ms; }
 
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .ambient { animation: none; }
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+    }
+
     /* ── RESPONSIVE ────────────────────────────────────────────── */
     @media (max-width: 768px) {
       .container { padding: 0 24px; }
@@ -581,6 +677,10 @@
       .edu-card { grid-template-columns: 1fr; gap: 16px; }
       .nav-links { display: none; }
       .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+      .sashimi-spread { padding: 28px 22px 28px; }
+      .sashimi-head { flex-direction: column; gap: 16px; }
+      .sashimi-body { grid-template-columns: 1fr; gap: 28px; }
+      .window-body .cmt { display: none; }
     }
   </style>
 </head>
@@ -631,7 +731,7 @@
         <i class="ph ph-github-logo"></i>
         GitHub
       </a>
-      <a class="cta-btn reveal reveal-delay-4" href="mailto:matiassanmiguel240@gmail.com">
+      <a class="cta-btn" href="mailto:matiassanmiguel240@gmail.com">
         Get in touch
         <i class="ph ph-arrow-right"></i>
       </a>
@@ -660,6 +760,8 @@
           What drives my work is a deep concern for data integrity. Every project I
           build starts with a schema and ends with audit trails. Systems should not
           lose records, silently corrupt state, or fail silently at boundaries.
+          Sashimi, now public, is the largest of those systems: a payment gateway with
+          hosted checkout and an SDK.
         </p>
         <p>
           Currently available for backend, infrastructure, and systems architecture
@@ -691,11 +793,11 @@
             <li>Implemented role-based access control for physicians and administrative staff with soft-delete and audit trail strategies.</li>
           </ul>
           <div class="exp-tags">
-            <span class="tag tag-b">PostgreSQL</span>
-            <span class="tag tag-b">Docker</span>
-            <span class="tag tag-b">REST API</span>
-            <span class="tag tag-g">RBAC</span>
-            <span class="tag tag-g">Audit Trails</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">Docker</span>
+            <span class="tag">REST API</span>
+            <span class="tag">RBAC</span>
+            <span class="tag">Audit Trails</span>
           </div>
         </div>
       </div>
@@ -716,11 +818,11 @@
             <li>Managed production Linux infrastructure, tuning server performance and reliability.</li>
           </ul>
           <div class="exp-tags">
-            <span class="tag tag-y">ERPNext</span>
-            <span class="tag tag-y">Python</span>
-            <span class="tag tag-y">Frappe</span>
-            <span class="tag tag-b">Linux</span>
-            <span class="tag tag-g">Supply Chain</span>
+            <span class="tag">ERPNext</span>
+            <span class="tag">Python</span>
+            <span class="tag">Frappe</span>
+            <span class="tag">Linux</span>
+            <span class="tag">Supply Chain</span>
           </div>
         </div>
       </div>
@@ -740,10 +842,10 @@
             <li>Primary technical decision-maker for technology growth and scaling strategy.</li>
           </ul>
           <div class="exp-tags">
-            <span class="tag tag-b">Infrastructure</span>
-            <span class="tag tag-b">E-commerce</span>
-            <span class="tag tag-g">Automation</span>
-            <span class="tag tag-r">Tech Leadership</span>
+            <span class="tag">Infrastructure</span>
+            <span class="tag">E-commerce</span>
+            <span class="tag">Automation</span>
+            <span class="tag">Tech Leadership</span>
           </div>
         </div>
       </div>
@@ -763,10 +865,10 @@
             <li>Performed kernel-level tuning and performance optimization on Linux VPS servers.</li>
           </ul>
           <div class="exp-tags">
-            <span class="tag tag-b">Docker</span>
-            <span class="tag tag-b">NGINX</span>
-            <span class="tag tag-g">SSL/TLS</span>
-            <span class="tag tag-y">Linux VPS</span>
+            <span class="tag">Docker</span>
+            <span class="tag">NGINX</span>
+            <span class="tag">SSL/TLS</span>
+            <span class="tag">Linux VPS</span>
           </div>
         </div>
       </div>
@@ -779,16 +881,76 @@
 <section id="projects">
   <div class="container">
     <p class="section-label reveal">Selected projects</p>
+
+    <article class="sashimi-spread reveal">
+      <header class="sashimi-head">
+        <div>
+          <p class="sashimi-kicker">01</p>
+          <h3 class="sashimi-title">Sashimi</h3>
+          <p class="sashimi-eyebrow">Payment gateway · LATAM · Open source</p>
+        </div>
+        <div class="sashimi-links">
+          <a class="card-link" href="https://github.com/Matias-Sanmiguel/sashimi-public" target="_blank" rel="noopener">
+            GitHub
+            <i class="ph ph-arrow-up-right"></i>
+          </a>
+          <a class="card-link" href="https://matias-sanmiguel.github.io/Sashimi/" target="_blank" rel="noopener">
+            Docs
+            <i class="ph ph-arrow-up-right"></i>
+          </a>
+        </div>
+      </header>
+      <p class="sashimi-thesis">
+        Shoppers pay in pesos. Merchants settle in USDT. Hosted checkout, HD wallets, signed webhooks — Java 21, Spring Boot, one Docker compose.
+      </p>
+      <div class="sashimi-body">
+        <div class="sashimi-rails">
+          <div class="rail">
+            <p class="rail-label">Cash-in</p>
+            <p class="rail-flow">Shopper pays ARS / BRL via CVU or PIX. Merchant receives USDT.</p>
+            <p class="rail-note">Fiat in, stablecoin out. Same order API as the crypto rail.</p>
+          </div>
+          <div class="rail">
+            <p class="rail-label">Crypto</p>
+            <p class="rail-flow">USDT / USDC on TRON or Solana. Settle on-chain or off-ramp to local fiat.</p>
+            <p class="rail-note">Unique deposit address per order. HMAC webhooks when it confirms.</p>
+          </div>
+        </div>
+        <div class="sashimi-window" aria-hidden="true">
+          <div class="window-chrome">
+            <div class="chrome-dot"></div>
+            <div class="chrome-dot"></div>
+            <div class="chrome-dot"></div>
+          </div>
+          <div class="window-body">
+            <div><span class="line-num">01</span><span class="kw">sashimi-parent</span></div>
+            <div><span class="line-num">02</span>├── <span class="str">sashimi-core</span> <span class="cmt"># domain, JPA, HD wallets</span></div>
+            <div><span class="line-num">03</span>├── <span class="str">sashimi-api</span> <span class="cmt"># REST, auth, OpenAPI</span></div>
+            <div><span class="line-num">04</span>├── <span class="str">sashimi-blockchain</span> <span class="cmt"># TRON + Solana</span></div>
+            <div><span class="line-num">05</span>├── <span class="str">sashimi-fx</span> <span class="cmt"># Bitso / MB / EUR</span></div>
+            <div><span class="line-num">06</span>├── <span class="str">sashimi-webhooks</span> <span class="cmt"># HMAC delivery</span></div>
+            <div><span class="line-num">07</span>└── <span class="str">sashimi-fiat</span> <span class="cmt"># cash-in + settlement</span></div>
+            <div><span class="line-num">08</span></div>
+            <div><span class="line-num">09</span><span class="cmt"># checkout · sdk · widget</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="exp-tags" style="margin-top:0;">
+        <span class="tag">Java 21</span>
+        <span class="tag">Spring Boot 3.3</span>
+        <span class="tag">PostgreSQL</span>
+        <span class="tag">Redis</span>
+        <span class="tag">TRON</span>
+        <span class="tag">Solana</span>
+        <span class="tag">Next.js</span>
+        <span class="tag">Docker</span>
+      </div>
+    </article>
+
     <div class="bento">
 
-      <!-- Main card: Cache -->
       <div class="bento-card bento-card--main reveal">
-        <div class="window-chrome" aria-hidden="true">
-          <div class="chrome-dot"></div>
-          <div class="chrome-dot"></div>
-          <div class="chrome-dot"></div>
-        </div>
-        <p class="card-number">01</p>
+        <p class="card-number">02</p>
         <h3 class="card-title">Caché: Polyglot Social Network</h3>
         <p class="card-desc">
           Nightlife social platform built on a four-database polyglot architecture.
@@ -798,13 +960,13 @@
           Next.js 14 frontend, full Docker orchestration with health checks.
         </p>
         <div class="exp-tags" style="margin-bottom: 20px;">
-          <span class="tag tag-b">Java 21</span>
-          <span class="tag tag-b">Spring Boot 3.3</span>
-          <span class="tag tag-r">Neo4j</span>
-          <span class="tag tag-r">Redis</span>
-          <span class="tag tag-g">MongoDB</span>
-          <span class="tag tag-g">Cassandra</span>
-          <span class="tag tag-y">Docker</span>
+          <span class="tag">Java 21</span>
+          <span class="tag">Spring Boot 3.3</span>
+          <span class="tag">Neo4j</span>
+          <span class="tag">Redis</span>
+          <span class="tag">MongoDB</span>
+          <span class="tag">Cassandra</span>
+          <span class="tag">Docker</span>
         </div>
         <a class="card-link" href="https://github.com/Matias-Sanmiguel/Cache" target="_blank" rel="noopener">
           View on GitHub
@@ -812,9 +974,8 @@
         </a>
       </div>
 
-      <!-- Side card: Pressure -->
       <div class="bento-card bento-card--side reveal reveal-delay-1">
-        <p class="card-number">02</p>
+        <p class="card-number">03</p>
         <h3 class="card-title">Pressure</h3>
         <p class="card-desc">
           Cross-platform desktop video compressor built in Rust. Auto-detects the best
@@ -823,10 +984,10 @@
           context-menu integration on Windows without admin rights.
         </p>
         <div class="exp-tags" style="margin-bottom: 20px;">
-          <span class="tag tag-r">Rust</span>
-          <span class="tag tag-b">NVENC</span>
-          <span class="tag tag-b">ffmpeg</span>
-          <span class="tag tag-g">Cross-platform</span>
+          <span class="tag">Rust</span>
+          <span class="tag">NVENC</span>
+          <span class="tag">ffmpeg</span>
+          <span class="tag">Cross-platform</span>
         </div>
         <a class="card-link" href="https://github.com/Matias-Sanmiguel/Pressure" target="_blank" rel="noopener">
           View on GitHub
@@ -834,9 +995,8 @@
         </a>
       </div>
 
-      <!-- Honeycomb -->
       <div class="bento-card bento-card--half reveal">
-        <p class="card-number">03</p>
+        <p class="card-number">04</p>
         <h3 class="card-title">Honeycomb: Blockchain Forensics</h3>
         <p class="card-desc">
           Forensic analysis system for blockchain transaction graphs. BFS, DFS, Dijkstra,
@@ -844,10 +1004,10 @@
           suspicious routing patterns. Spring Boot backend, Neo4j graph storage.
         </p>
         <div class="exp-tags">
-          <span class="tag tag-b">Java</span>
-          <span class="tag tag-b">Spring Boot</span>
-          <span class="tag tag-r">Neo4j</span>
-          <span class="tag tag-g">Graph Algorithms</span>
+          <span class="tag">Java</span>
+          <span class="tag">Spring Boot</span>
+          <span class="tag">Neo4j</span>
+          <span class="tag">Graph Algorithms</span>
         </div>
         <a class="card-link" href="https://github.com/Matias-Sanmiguel/Honeycombv2" target="_blank" rel="noopener" style="margin-top:16px;display:inline-flex;">
           View on GitHub
@@ -855,9 +1015,8 @@
         </a>
       </div>
 
-      <!-- CauchoChain -->
       <div class="bento-card bento-card--half reveal reveal-delay-1">
-        <p class="card-number">04</p>
+        <p class="card-number">05</p>
         <h3 class="card-title">CauchoChain</h3>
         <p class="card-desc">
           Educational TUI blockchain built in Java from scratch. Cryptographic block
@@ -865,9 +1024,9 @@
           and a terminal interface for exploring CAP theorem trade-offs interactively.
         </p>
         <div class="exp-tags">
-          <span class="tag tag-b">Java</span>
-          <span class="tag tag-y">Cryptography</span>
-          <span class="tag tag-r">Distributed Systems</span>
+          <span class="tag">Java</span>
+          <span class="tag">Cryptography</span>
+          <span class="tag">Distributed Systems</span>
         </div>
         <a class="card-link" href="https://github.com/Matias-Sanmiguel/CauchoChain" target="_blank" rel="noopener" style="margin-top:16px;display:inline-flex;">
           View on GitHub
@@ -887,68 +1046,32 @@
 
       <div class="skill-group">
         <p class="skill-group-label">Languages</p>
-        <div class="skill-items">
-          <div class="skill-row">
-            <span class="skill-name">Java 21</span>
-            <div class="skill-bar-wrap"><div class="skill-bar" style="--w:0.90"></div></div>
-          </div>
-          <div class="skill-row">
-            <span class="skill-name">Python</span>
-            <div class="skill-bar-wrap"><div class="skill-bar" style="--w:0.82"></div></div>
-          </div>
-          <div class="skill-row">
-            <span class="skill-name">SQL</span>
-            <div class="skill-bar-wrap"><div class="skill-bar" style="--w:0.91"></div></div>
-          </div>
-          <div class="skill-row">
-            <span class="skill-name">Bash / Shell</span>
-            <div class="skill-bar-wrap"><div class="skill-bar" style="--w:0.75"></div></div>
-          </div>
-        </div>
+        <ul class="skill-items">
+          <li class="skill-name">Java 21</li>
+          <li class="skill-name">Python</li>
+          <li class="skill-name">SQL</li>
+          <li class="skill-name">Bash / Shell</li>
+        </ul>
       </div>
 
       <div class="skill-group">
         <p class="skill-group-label">Backend & Databases</p>
-        <div class="skill-items">
-          <div class="skill-row">
-            <span class="skill-name">Spring Boot 3</span>
-            <div class="skill-bar-wrap"><div class="skill-bar" style="--w:0.85"></div></div>
-          </div>
-          <div class="skill-row">
-            <span class="skill-name">PostgreSQL</span>
-            <div class="skill-bar-wrap"><div class="skill-bar" style="--w:0.92"></div></div>
-          </div>
-          <div class="skill-row">
-            <span class="skill-name">Neo4j · MongoDB · Redis</span>
-            <div class="skill-bar-wrap"><div class="skill-bar" style="--w:0.78"></div></div>
-          </div>
-          <div class="skill-row">
-            <span class="skill-name">Cassandra</span>
-            <div class="skill-bar-wrap"><div class="skill-bar" style="--w:0.68"></div></div>
-          </div>
-        </div>
+        <ul class="skill-items">
+          <li class="skill-name">Spring Boot 3</li>
+          <li class="skill-name">PostgreSQL</li>
+          <li class="skill-name">Neo4j · MongoDB · Redis</li>
+          <li class="skill-name">Cassandra</li>
+        </ul>
       </div>
 
       <div class="skill-group">
         <p class="skill-group-label">Infrastructure & DevOps</p>
-        <div class="skill-items">
-          <div class="skill-row">
-            <span class="skill-name">Linux · Docker · NGINX</span>
-            <div class="skill-bar-wrap"><div class="skill-bar" style="--w:0.92"></div></div>
-          </div>
-          <div class="skill-row">
-            <span class="skill-name">AWS</span>
-            <div class="skill-bar-wrap"><div class="skill-bar" style="--w:0.78"></div></div>
-          </div>
-          <div class="skill-row">
-            <span class="skill-name">GitHub Actions (CI/CD)</span>
-            <div class="skill-bar-wrap"><div class="skill-bar" style="--w:0.80"></div></div>
-          </div>
-          <div class="skill-row">
-            <span class="skill-name">Data Modeling / Schema Design</span>
-            <div class="skill-bar-wrap"><div class="skill-bar" style="--w:0.90"></div></div>
-          </div>
-        </div>
+        <ul class="skill-items">
+          <li class="skill-name">Linux · Docker · NGINX</li>
+          <li class="skill-name">AWS</li>
+          <li class="skill-name">GitHub Actions (CI/CD)</li>
+          <li class="skill-name">Data Modeling / Schema Design</li>
+        </ul>
       </div>
 
     </div>
@@ -961,16 +1084,16 @@
     <p class="section-label reveal">Education</p>
     <div class="edu-card reveal">
       <div class="edu-year">
-        <p style="font-family:var(--mono);font-size:12px;color:var(--muted);">2024 - 2029</p>
-        <p style="font-size:12px;color:var(--muted);margin-top:4px;">In progress</p>
+        <p>2024 - 2029</p>
+        <p style="font-size:12px;color:var(--muted);margin-top:4px;font-family:var(--sans);letter-spacing:0;">In progress</p>
       </div>
       <div>
         <h3 class="edu-degree">Bachelor's Degree in<br>Information Technology Engineering</h3>
         <p class="edu-inst">Universidad Argentina de la Empresa (UADE)</p>
         <div class="exp-tags">
-          <span class="tag tag-b">Data Structures</span>
-          <span class="tag tag-b">Algorithms</span>
-          <span class="tag tag-g">Operating Systems</span>
+          <span class="tag">Data Structures</span>
+          <span class="tag">Algorithms</span>
+          <span class="tag">Operating Systems</span>
         </div>
       </div>
     </div>
@@ -1007,7 +1130,6 @@
 </section>
 
 <script>
-  // Dark mode
   const root = document.documentElement;
   const toggle = document.getElementById('themeToggle');
   const icon = document.getElementById('themeIcon');
@@ -1025,23 +1147,17 @@
     applyTheme(!isDark);
   });
 
-  // Scroll-reveal via IntersectionObserver
   const revealEls = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
-        // Animate skill bars when skills section enters view
-        entry.target.querySelectorAll('.skill-bar').forEach(bar => {
-          setTimeout(() => bar.classList.add('animated'), 100);
-        });
         observer.unobserve(entry.target);
       }
     });
   }, { threshold: 0.1 });
   revealEls.forEach(el => observer.observe(el));
 
-  // Fire on load for above-fold elements
   window.addEventListener('load', () => {
     document.querySelectorAll('.reveal').forEach(el => {
       const rect = el.getBoundingClientRect();
