@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://matias-sanmiguel.github.io/portfolio/sitemap.xml

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>Matías Sanmiguel — Curriculum Vitae</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 48px;
+      color: #1d1c19;
+      background: #fff;
+      font: 10.3pt/1.36 Arial, Helvetica, sans-serif;
+    }
+    header { padding-bottom: 16px; border-bottom: 2px solid #8f3a32; }
+    h1 { margin: 0; font-family: Georgia, serif; font-size: 27pt; font-weight: 400; letter-spacing: -0.04em; }
+    .headline { margin: 4px 0 8px; color: #8f3a32; font-weight: 700; }
+    .contact { margin: 0; color: #55524c; font-size: 9pt; }
+    .contact a { color: inherit; }
+    section { margin-top: 19px; }
+    h2 { margin: 0 0 9px; padding-bottom: 4px; border-bottom: 1px solid #d8d4cb; color: #8f3a32; font-size: 10pt; letter-spacing: 0.12em; text-transform: uppercase; }
+    h3 { margin: 0; font-size: 10.4pt; }
+    p { margin: 4px 0; }
+    ul { margin: 5px 0 0; padding-left: 17px; }
+    li { margin: 2px 0; }
+    .entry { margin-top: 11px; break-inside: avoid; }
+    .entry:first-of-type { margin-top: 0; }
+    .entry-head { display: flex; justify-content: space-between; gap: 20px; align-items: baseline; }
+    .entry-date { flex: 0 0 auto; color: #67635c; font-size: 9pt; }
+    .entry-subtitle { color: #55524c; font-size: 9.4pt; }
+    .skills p { margin: 3px 0; }
+    .actions { position: fixed; top: 16px; right: 16px; }
+    .actions button { padding: 9px 13px; border: 1px solid #8f3a32; border-radius: 4px; background: #8f3a32; color: #fff; cursor: pointer; font-weight: 700; }
+    @page { size: A4; margin: 13mm 14mm; }
+    @media print {
+      body { max-width: none; padding: 0; font-size: 8.35pt; line-height: 1.24; }
+      .actions { display: none; }
+      header { padding-bottom: 9px; }
+      h1 { font-size: 23pt; }
+      .headline { margin: 2px 0 5px; }
+      section { margin-top: 9px; }
+      h2 { margin-bottom: 5px; padding-bottom: 2px; }
+      .entry { margin-top: 5px; }
+      ul { margin-top: 2px; }
+      li { margin: 1px 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="actions"><button type="button" onclick="window.print()">Print / save PDF</button></div>
+  <header>
+    <h1>Matías Sanmiguel</h1>
+    <p class="headline">Technology Intern · Backend Developer · Applied AI · Systems &amp; Infrastructure</p>
+    <p class="contact">Buenos Aires, Argentina · +54 9 11 6871-9018 · <a href="mailto:matiassanmiguel240@gmail.com">matiassanmiguel240@gmail.com</a><br>
+      <a href="https://www.linkedin.com/in/matias-sanmiguel/">linkedin.com/in/matias-sanmiguel</a> · <a href="https://github.com/Matias-Sanmiguel">github.com/Matias-Sanmiguel</a> · <a href="https://matias-sanmiguel.github.io/portfolio/">Portfolio</a>
+    </p>
+  </header>
+
+  <section>
+    <h2>Profile</h2>
+    <p>IT Engineering student at UADE and Technology Intern at Personal with hands-on experience delivering backend systems, workflow automation and Linux infrastructure for real operations. Experience across the delivery cycle: requirements, architecture, implementation, deployment, operations and support. Founder of CauchoSoft and IMAS+, UADE's Computer Science Club.</p>
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+    <article class="entry">
+      <div class="entry-head"><h3>Technology Intern — Personal</h3><span class="entry-date">Sep 2026 — Present</span></div>
+    </article>
+    <article class="entry">
+      <div class="entry-head"><h3>Founder &amp; Backend Developer — CauchoSoft</h3><span class="entry-date">Jan 2025 — Present</span></div>
+      <p class="entry-subtitle">Freelance software studio</p>
+      <ul>
+        <li>Built Sashimi, a Java 21 and Spring Boot 3.3 crypto ↔ fiat payment gateway with PostgreSQL, Redis, HD wallets, signed webhooks, idempotency, CI/CD and layered testing.</li>
+        <li>Delivered n8n automation for inventory, sales and administrative workflows; integrated external APIs, ERPs and payment platforms.</li>
+        <li>Worked directly with clients on requirements, documentation, training and adoption support.</li>
+      </ul>
+    </article>
+    <article class="entry">
+      <div class="entry-head"><h3>System Architect &amp; Full-Stack Developer — Clinical Platform</h3><span class="entry-date">Jan 2025 — Present</span></div>
+      <p class="entry-subtitle">Freelance · Physiotherapy clinic</p>
+      <ul>
+        <li>Designed, built and deployed a production platform for appointments, room availability, clinical records, treatment tracking, billing, roles and permissions.</li>
+        <li>Modeled PostgreSQL audit trails and soft deletes; containerized the stack and configured NGINX, TLS, GitHub Actions and Linux infrastructure.</li>
+      </ul>
+    </article>
+    <article class="entry">
+      <div class="entry-head"><h3>ERP Developer &amp; Automation Engineer — Distribution</h3><span class="entry-date">Dec 2024 — Apr 2025</span></div>
+      <ul>
+        <li>Implemented ERPNext, custom Frappe modules in Python and n8n workflows for multi-warehouse inventory.</li>
+        <li>Built operational dashboards and managed production Linux infrastructure.</li>
+      </ul>
+    </article>
+    <article class="entry">
+      <div class="entry-head"><h3>Systems &amp; Development Lead — Nasami</h3><span class="entry-date">Jan 2023 — Nov 2024</span></div>
+      <ul>
+        <li>Managed Linux servers and on-premise infrastructure, improved e-commerce backend stability and automated repetitive administrative work.</li>
+      </ul>
+    </article>
+  </section>
+
+  <section>
+    <h2>Selected projects</h2>
+    <article class="entry">
+      <h3>Sashimi — Crypto ↔ fiat payment gateway</h3>
+      <p>Java 21, Spring Boot 3.3, PostgreSQL, Redis, Docker, TRON, Solana, GitHub Actions, AWS Secrets Manager. Maven multi-module architecture, hosted checkout, SDK, USDT/USDC payments and layered observability. <a href="https://github.com/Matias-Sanmiguel/sashimi-public">Repository</a></p>
+    </article>
+    <article class="entry">
+      <h3>Caché — Polyglot social network</h3>
+      <p>Spring Boot and Next.js application using Neo4j for the social graph, Redis for presence, MongoDB for the catalog and Cassandra for check-in history.</p>
+    </article>
+    <article class="entry">
+      <h3>Pressure — Cross-platform video compressor</h3>
+      <p>Rust and FFmpeg desktop application with NVENC / VideoToolbox detection, x264 fallback, a job queue and live telemetry.</p>
+    </article>
+  </section>
+
+  <section class="skills">
+    <h2>Technical skills</h2>
+    <p><strong>Backend:</strong> Java 21, Spring Boot 3.3, Python, REST APIs, Maven, Frappe</p>
+    <p><strong>AI &amp; automation:</strong> OpenRouter, DeepSeek API, OpenAI API, conversational agents, prompt architecture, n8n, ERPNext</p>
+    <p><strong>Data:</strong> PostgreSQL, MariaDB, Redis, Neo4j, MongoDB, Cassandra, Flyway, schema design and audit trails</p>
+    <p><strong>Infrastructure &amp; quality:</strong> Linux, Docker, NGINX, GitHub Actions, AWS Secrets Manager, JUnit, Mockito, WireMock, Prometheus, Grafana</p>
+  </section>
+
+  <section>
+    <h2>Education &amp; leadership</h2>
+    <article class="entry">
+      <div class="entry-head"><h3>Bachelor's in IT Engineering — UADE</h3><span class="entry-date">Mar 2024 — Dec 2028</span></div>
+      <p class="entry-subtitle">In progress · Data structures, algorithms and operating systems</p>
+    </article>
+    <article class="entry">
+      <h3>Founder — IMAS+, UADE Computer Science Club</h3>
+    </article>
+    <p><strong>Languages:</strong> Spanish (native) · English C1 Advanced (Cambridge CAE certified)</p>
+  </section>
+</body>
+</html>

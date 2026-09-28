@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f2f0ea"/>
+  <circle cx="1080" cy="50" r="360" fill="#923e32" opacity="0.07"/>
+  <path d="M72 76H1128M72 554H1128" stroke="#d9d5ca"/>
+  <text x="72" y="128" fill="#923e32" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" letter-spacing="2">TECHNOLOGY INTERN AT PERSONAL</text>
+  <text x="72" y="276" fill="#1b1a17" font-family="Georgia, serif" font-size="94" letter-spacing="-4">Matías Sanmiguel</text>
+  <text x="72" y="355" fill="#67645d" font-family="Arial, Helvetica, sans-serif" font-size="32">Backend systems · Applied AI · Automation · Infrastructure</text>
+  <text x="72" y="482" fill="#1b1a17" font-family="Arial, Helvetica, sans-serif" font-size="26">IT Engineering · UADE</text>
+  <text x="1128" y="520" fill="#923e32" text-anchor="end" font-family="Courier New, monospace" font-size="24" font-weight="700">MS / 26</text>
+</svg>
