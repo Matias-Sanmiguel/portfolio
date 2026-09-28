@@ -21,4 +21,4 @@ Un Docker Compose. Postgres, Redis, API con checkout estático, Prometheus y Gra
 Stack: Java 21, Spring Boot 3.3, Maven multi-módulo, PostgreSQL, Redis, Next.js, @sashimi/sdk y widget JS.
 
 Repo: https://github.com/Matias-Sanmiguel/sashimi-public
-Docs: https://matias-sanmiguel.github.io/Sashimi/
+Docs: https://matias-sanmiguel.github.io/sashimi-public/
